@@ -32,10 +32,13 @@ const App = () => {
            console.log(r)
            const {results} = r.data;
            results.map(character => {
+             const {name, gender, birth_year, height, mass, hair_color, species} = results;
+             const birthYear = birth_year;
+             const hairColor = hair_color;
               setName(character.name); 
               show('name: ', name);
               setGender(character.gender); 
-              show('gender: ', gender)
+              show('gender/: ', gender)
               setBirthYear(character.birth_year); 
               show('birthYear: ', birthYear)
               setHeight(character.height); 
@@ -46,6 +49,7 @@ const App = () => {
               show('hairColor: ', hairColor)
               setSpecies(character.species)
               show('species: ', species)
+              return character
             })
         })
          .catch(e => console.log(e))
