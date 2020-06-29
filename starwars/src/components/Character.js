@@ -1,15 +1,7 @@
 import React from 'react';
 // Write your Character component here
-export default function Character(
-    {name}, 
-    {gender},
-    {birthYear},
-    {height},
-    {mass},
-    {hairColor},
-    {species}
-    ){
-
+export default function Character(props){
+  const {name, gender, birthYear, height, mass, hairColor, species} = props;
 
         return (
             <div>
