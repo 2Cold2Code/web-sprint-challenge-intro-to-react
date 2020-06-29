@@ -17,8 +17,8 @@ const App = () => {
     vehicles: 'vehicles/'
   }
 
-  const [name, setName]  = useState({})
-  const [gender, setGender] = useState({});
+  const [name, setName]  = useState()
+  const [gender, setGender] = useState();
   const [birthYear, setBirthYear] = useState();
   const [height, setHeight] = useState();
   const [mass, setMass] = useState();
