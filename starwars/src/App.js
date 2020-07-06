@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Button} from 'reactstrap'
+import { Button } from 'reactstrap'
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character';
@@ -7,7 +7,7 @@ import Character from './components/Character';
 function show(stuff, ...moreStuff){
   console.log(stuff, ...moreStuff)
 }
-show(process)
+show('this is process: ', process)
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -43,19 +43,19 @@ const App = () => {
              const birthYear = birth_year;
              const hairColor = hair_color;
               setName(character.name); 
-              show('name: ', name);
-              setGender(character.gender); 
-              show('gender/: ', gender)
+              
+              setGender(character.gender);
+              
               setBirthYear(character.birth_year); 
-              show('birthYear: ', birthYear)
+              
               setHeight(character.height); 
-              show('height: ', height)
+              
               setMass(character.mass); 
-              show('mass: ', mass);
+              
               setHairColor(character.hair_color); 
-              show('hairColor: ', hairColor);
+              
               setSpecies(character.species);
-              show('species: ', species);
+              
               return character
             })
         })
@@ -68,9 +68,9 @@ const App = () => {
       .then( r => {
       setNext(`${r.data.next}`)
       setPrevious(r.data.previous)
-              show('next character: ', next)
+      
               setPrevious(r.data.previous)
-              show('Previous character: ', previous)
+              
       })
     }, [subapi.characters]
   )
@@ -81,9 +81,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <Button className={'primary'} onClick={()=>{
-         subapi.characters = setNext(next);
-      }}>Previous</Button>
+      <Button color={'primary'} block>Previous</Button>
       <Character 
         name={name} 
         gender={gender}
@@ -93,7 +91,9 @@ const App = () => {
         hairColor={hairColor}
         species={species}
       />
-      <Button type={'primary'}>Next</Button>
+      <Button color='primary' size='lg' onClick={()=>{
+         subapi.characters = setNext(next);
+      }} block>Next</Button>
     </div>
   );
 }
